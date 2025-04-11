@@ -1,0 +1,18 @@
+import java.io.*;
+
+public class ThrowsExample {
+
+    public static void readFile(String fileName) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        System.out.println(br.readLine());
+        br.close();
+    }
+
+    public static void main(String[] args) {
+        try {
+            readFile("example.txt");
+        } catch (IOException e) {
+            System.out.println("File not found or cannot be read.");
+        }
+    }
+}
