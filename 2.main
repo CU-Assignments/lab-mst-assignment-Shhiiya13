@@ -1,0 +1,63 @@
+
+class Animal {
+ 
+    String name;
+    int age;
+
+   
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+   
+    public void makeSound() {
+        System.out.println("The animal makes a sound.");
+    }
+
+   
+    public void displayInfo() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+
+class Dog extends Animal {
+    // Additional field specific to Dog
+    String breed;
+
+   
+    public Dog(String name, int age, String breed) {
+        // Call the constructor of the base class (Animal)
+        super(name, age);
+        this.breed = breed;
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("The dog barks.");
+    }
+
+  
+    public void displayDogInfo() {
+        displayInfo(); // Call the base class method
+        System.out.println("Breed: " + breed);
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an object of Animal
+        Animal animal = new Animal("Animal", 5);
+        animal.displayInfo();
+        animal.makeSound();
+
+        System.out.println();
+
+      
+        Dog dog = new Dog("Max", 3, "Golden Retriever");
+        dog.displayDogInfo();  // Calls method from derived class
+        dog.makeSound();       // Calls overridden method in Dog class
+    }
+}
