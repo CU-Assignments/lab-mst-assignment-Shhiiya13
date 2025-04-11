@@ -1,0 +1,45 @@
+public class MathOperations {
+
+    // Addition
+    public int operate(int a, int b) {
+        return a + b;
+    }
+
+    public double operate(double a, double b) {
+        return a + b;
+    }
+
+    // Subtraction
+    public int operate(int a, int b, String operation) {
+        if (operation.equalsIgnoreCase("subtract")) {
+            return a - b;
+        }
+        return 0;
+    }
+
+    // Multiplication
+    public double operate(double a, double b, String operation) {
+        if (operation.equalsIgnoreCase("multiply")) {
+            return a * b;
+        }
+        return 0;
+    }
+
+    // Division
+    public double operate(int a, int b, boolean isDivision) {
+        if (isDivision && b != 0) {
+            return (double) a / b;
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        MathOperations math = new MathOperations();
+
+        System.out.println("Addition (int): " + math.operate(10, 5));
+        System.out.println("Addition (double): " + math.operate(10.5, 5.2));
+        System.out.println("Subtraction: " + math.operate(10, 5, "subtract"));
+        System.out.println("Multiplication: " + math.operate(10.0, 5.0, "multiply"));
+        System.out.println("Division: " + math.operate(10, 5, true));
+    }
+}
