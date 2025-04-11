@@ -1,0 +1,36 @@
+// Define the interface
+interface Shape {
+    double calculateArea();
+    double calculatePerimeter();
+}
+
+// Implementing the interface
+class Circle implements Shape {
+    private double radius;
+
+    // Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Implementing interface methods
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+// Main class to test the implementation
+public class InterfaceDemo {
+    public static void main(String[] args) {
+        Shape myCircle = new Circle(5.0);
+
+        System.out.println("Area of Circle: " + myCircle.calculateArea());
+        System.out.println("Perimeter of Circle: " + myCircle.calculatePerimeter());
+    }
+}
